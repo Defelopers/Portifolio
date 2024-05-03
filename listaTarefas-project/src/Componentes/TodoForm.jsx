@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 
-const TodoForm = () => {
+const TodoForm = ({addTodo}) => {
+    // Gerenciando o estado
+    const [value, setValue] = useState('') // Prennchido pelo input
+    const [category, setCategory] = useState('') // Preenchido pelo input
 
-    const [value, setValue] = useState('')
-    const [category, setCategory] = useState('')
-
+// Essa função dá o submit do formulário 
 const handleSubmit = (e) => {
     e.preventDefault()
-    if (!value || !category) return;
+    if (!value || !category) return; // Validação : Se não tiver value ou não tiver a categoria retorne
+    addTodo(value, category) // Se os valores forem preenchidos, vai executar uma função para adicionar todo e limpar os campos
     setValue('')
     setCategory('')
 
@@ -18,7 +20,7 @@ const handleSubmit = (e) => {
     <div className='todo-form'>
         <h2>Criar Tarefa</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder='Digite o título' value={value} onChange={(e) => setValue(e.target.value)}/>
+            <input type="text" placeholder='Digite o título' value={value} onChange={(e) => setValue(e.target.value)}/> {/*Evento onChange para mudança de valores*/}
             <select name="" id="" value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option value="">Selecione a categoria</option>
                 <option value="Trabalho">Trabalho</option>
