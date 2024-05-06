@@ -1,5 +1,6 @@
 .colaborador {
     width:280px;
+    position:relative;
     padding-top: 20px;
 }
 
@@ -35,4 +36,13 @@
     font-size: 22px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
+}
+
+.deletar {
+    position:absolute;
+    top:25px;
+    right:10px;
+    cursor:pointer;
+    
+    
 }
